@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="inputname" type="text" placeholder="name">
+    <button id="btnClick">Click</button>
+    <span id="display"></span>
+    <br>
+
+    <script>
+        var inputname = document.getElementById('inputname')
+        var btnClick = document.getElementById('btnClick')
+
+        var display = document.getElementById('display')
+
+
+        function calltoHello() {
+            console.log('Hello');
+            display.innerText = 'Hello' + inputname.value;
+
+        }
+        btnClick.onclick = calltoHello;
+    </script>
+</body>
+
+</html>
