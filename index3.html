@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="inputname" type="text" placeholder="inputname">
+    <button id="btnCheck">Click</button>
+    <span id="display"></span>
+
+    <script>
+        var inputname = document.getElementById('inputname')
+        var btnClick = document.getElementById('btcCheck')
+        var display = document.getElementById('display')
+
+        function calltoCheck() {
+            var pattern = /\d/;
+            var value = inputname.value;
+            if (value == '') {
+                display.innerText = 'Null';
+            } else if (pattern.test(value)) {
+                display.innerText = 'Number';
+            } else display.innerText = 'Text';
+
+        }
+        btnCheck.onclick = calltoCheck;
+    </script>
+</body>
+
+</html>
