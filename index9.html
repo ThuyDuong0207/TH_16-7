@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error{
+        background-color: red;
+        color: white;
+    }
+     .success{
+        background-color: green;
+        color: white;
+    }
+</style>
+<body>
+    <input id="inputdate" type="text" placeholder="dd-mm-yyyy">
+    <span id="spanerror" class="error"></span>
+    <span id="spansuccess" class="success"></span>
+    <button id="submit">Click</button>
+    <script>
+        var inputdate=document.getElementById('inputdate');
+        var submit=document.getElementById('submit');
+        var spanerror=document.getElementById('spanerror');
+        var spansuccess=document.getElementById('spansuccess');
+
+
+        submit.onclick =()=>{
+            var day=inputdate.value.trim();
+            var pattern=/^(0[1-9]|[1-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-[0-9]{4}$/;
+            var logic=pattern.test(day);
+            console.log(logic);
+            spanerror.innerText='';
+            spansuccess.innerText='';
+            if(day=== ''){
+               spanerror.innerText='Xin vui lòng nhập dữ liệu'; 
+            } else if(!logic){
+                spanerror.innerText='Error';
+            } else{
+                spansuccess.innerText='Success';
+            }
+        }
+    </script>
+</body>
+</html>

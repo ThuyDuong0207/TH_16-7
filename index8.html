@@ -11,35 +11,36 @@
         color: white;
     }
      .success{
-        background-color: green;
+        background-color: rgb(4, 0, 128);
         color: white;
     }
 </style>
 <body>
-    <input id="inputnumber" type="text" placeholder="number phone">
+    <input id="inputnumber" type="text" placeholder="number"><br/>
+    <input id="inputnumberphone" type="text" placeholder="number phone">
     <span id="spanerror" class="error"></span>
     <span id="spansuccess" class="success"></span>
     <button id="submit">Check</button>
     <script>
         var inputnumber=document.getElementById('inputnumber');
+        var inputnumberphone=document.getElementById('inputnumberphone');
         var spanerror=document.getElementById('spanerror');
         var spansuccess=document.getElementById('spansuccess');
         var submit=document.getElementById('submit');
-        
-        
+
         submit.onclick=()=>{
-            var a=inputnumber.value.trim();
-            var pattern=/^\d{10}$/;
-            var logic=pattern.test(inputnumber.value);
+            var number=Number(inputnumber.value);
+            var numberphone=inputnumberphone.value.trim();
+            var pattern=/\d{10}/;
+            var logic=pattern.test(inputnumberphone.value);
             console.log(logic);
             spanerror.innerText='';
             spansuccess.innerText='';
-             if (a== ''){
-                spanerror.innerText='Please check input!'
-            } else if (logic){
-               spansuccess.innerText='Success!'
-            } else spanerror.innerText='Error!'
-            
+            if(number== '' || numberphone== ''){
+                spanerror.innerText='Vui lòng nhập dữ liệu!';
+            }else if (isNaN(number)|| !logic){
+                spanerror.innerText='Vui lòng nhập đúng dữ liệu!';
+            }else spansuccess.innerText='Success'
         }
     </script>
 </body>
