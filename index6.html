@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        background-color: red;
+        color: white;
+    }
+    .success{
+        background-color: rgb(47, 99, 255);
+        color: white;
+    }
+</style>
+
+<body>
+    <input id="inputnumber1" type="text" placeholder="So 1">
+    <input id="inputnumber2" type="text" placeholder="So 2"><br/>
+    <span id="spannumber2" class="error"></span><br/>
+    <span id="spansuccess" class="success"></span><br/>
+    <button id="submit">Click</button>
+    <script>
+        var inputnumber1 = document.getElementById('inputnumber1');
+        var inputnumber2 = document.getElementById('inputnumber2');
+        var spannumber2 = document.getElementById('spannumber2');
+        var submit = document.getElementById('submit');
+
+
+        submit.onclick = () => {
+            var x=inputnumber1.value.trim();
+            var y=inputnumber2.value.trim();
+            
+            if (x == '' || y == '') {
+                spannumber2.innerText = 'Bạn chưa nhập đầy đủ!';
+            }else if (isNaN(x) || isNaN(y)) {
+                spannumber2.innerText = 'Bạn đang nhập chữ!';
+            } else {
+            var a = Number(x);
+            var b = Number(y);
+            var total = a + b;
+            spansuccess.innerText = 'Tong 2 so la ' + total;
+            }
+
+        };
+    </script>
+</body>
+
+</html>
