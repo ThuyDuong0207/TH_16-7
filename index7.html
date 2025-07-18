@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error{
+        background-color: red;
+        color: white;
+    }
+     .success{
+        background-color: green;
+        color: white;
+    }
+</style>
+<body>
+    <input id="inputnumber" type="text" placeholder="number phone">
+    <span id="spanerror" class="error"></span>
+    <span id="spansuccess" class="success"></span>
+    <button id="submit">Check</button>
+    <script>
+        var inputnumber=document.getElementById('inputnumber');
+        var spanerror=document.getElementById('spanerror');
+        var spansuccess=document.getElementById('spansuccess');
+        var submit=document.getElementById('submit');
+        
+        
+        submit.onclick=()=>{
+            var a=inputnumber.value.trim();
+            var pattern=/^\d{10}$/;
+            var logic=pattern.test(inputnumber.value);
+            console.log(logic);
+            spanerror.innerText='';
+            spansuccess.innerText='';
+             if (a== ''){
+                spanerror.innerText='Please check input!'
+            } else if (logic){
+               spansuccess.innerText='Success!'
+            } else spanerror.innerText='Error!'
+            
+        }
+    </script>
+</body>
+</html>
